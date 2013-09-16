@@ -1,69 +1,356 @@
-<!DOCTYPE HTML>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    TODO: wget static content (images, fonts ....)  to local for reliability and faster loading 
+-->
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=1024" />
+	<meta charset="utf-8" />
+
+	<title>Yishi Zhao's portfolio</title>
+	<meta name="author" content="Yishi Zhao"/>
+	<meta name="description" content="Yishi Zhao's portfolio page"/>
+
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>choyixi's github page</title>     
-    <meta name="author" content="Yishi Zhao"/>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="normalize.css" type="text/css">
+	<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+	<link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="backup_cleaned_css.css" type="text/css">
+	
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+
 </head>
-<body class="impress-not-supported">
-<div class="fallback-message">
-    <p>Your browser <strong>sucks</strong> ! Here is a simple version of the page.</p>
-</div>
 
-<div id="impress">
+<nav class="ruler">
+ 
+    <table id = "icons_header_table">	
+       <tr class="icon_bar">
+<!--
 
-    <div id="title" class="step" data-x="-30" data-y="0" data-scale="4">
-        <h1>choyixi@github</h1>
-        <span class='footnote'><sup></sup>熊猫</span> 
-    </div>
-  
-    <div id="big" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-      <p> lamb is a <strong>DUNGER</strong>! 
-      <audio autoplay>
-        <source src="audio/baalamb3.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-      </p>
-    </div>
+         <td class="icon_slot no_rotate left_arrow"><a class="icon" href="#left">9</a></td>
+-->
+          <td class="icon_slot"><a class="icon current_page home" id = "nav_0"  href="#/0">S</a> </td>
+          <td class="icon_slot"><a class="icon about_me"  id = "nav_1" href="#/1">Ú</a></td>
+          <td class="icon_slot"><a class="icon work" id = "nav_2"  href="#/2">Ø</a></td>
+          <td class="icon_slot"><a class="icon contact_me" id = "nav_3"  href="#/3">M</a></td>
+          <td class="icon_slot"><a class="icon references"  id = "nav_4" href="#/4">E</a></td>
+<!--
+          <td class="icon_slot no_rotate right_arrow"><a class="icon" href="#right">:</a></td>
+-->
+        </tr>
+      </table> 
 
-    <div id="tiny" class="step" data-x="850" data-y="3000" data-z='-2500' data-rotate="280" data-scale=0.5">
-      <p> Baaanda is smart! </p>
-      <img src="images/runningbunny.gif" width="75">
-      <script>
-        
-      </script>
-    </div>
+    <table class="ruler_bar_bottom">
+      <tr>
+          <!-- a desperate hack :P -->
+          <!-- implementing the ruler markings at the bottom of the header -->
+          <!--
+            while this isn't my first choice, I did play around with the 'border-image' css property, it is a little quirky with browsers, plus
+            I only want a custom bottom border
+          -->
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+          <td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td> <td>|</td><td>|</td><td>|</td>
+        </tr>
+      </table>
+</nav>
 
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
-    </div>
+		<div class="reveal">
 
-</div>
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
 
-<div class="hint">
-    <p>Use a spacebar or arrow keys to navigate</p>
-</div>
-<script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
-</script>
+				<section data-transition="linear" data-background-transition="slide">
+					<h1>Hi ! You've reached my portfolio on github.</h1>
+					<h3>To navigate through this presentation please use the arrow keys or click on one of the icons above to skip ahead. </h3>
+					<p>		
+						</br>	<small>Created by Yishi Zhao</small>
+					</p>
+				</section>
+
+				<section data-transition="linear" data-background-transition="slide" data-state="current-on-about-me">
+					<section>
+					<h2><strong>About Me</strong></h2>
+					<p style="text-align:left">
+					Howdy ! </br> I'm Yishi, a GISer recently graduated from University of Waterloo.</br>
+					I have experience of mapping, spatial analysis & surveying through my undergrad study.</br>
+					I've also worked on GIS & RS (remote sensing) projects. </br>
+					Most of my maps were created with ArcGIS & I use ENVI for remote sensing stuff.</br>
+					I'm familiar with total stations, GPS and dumpy levels as surveying equipments. 
+					</br></br>
+					press the <strong>DOWN ARROW </strong> to continue ... ...
+					</p>
+					
+					</section>
+					<section>
+					<p style="text-align:left">
+					<strong>As a self-starter... </strong></br></br>
+					I have taught myself to code and am working on</br></br> a Python/GeoDjango app that allows tenants to rate their rental experience to provide references for potential tenants.</br>
+					</br>Also, I'm teaching myself CSS, HTML5 and Javascript and having fun exploring.
+
+					</br></p>
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+            <section data-transition="linear" data-background-transition="slide">
+			        <section>	
+						<h2>Work</h2>
+
+						<p>
+							Here are some maps I created for projects/assignments.
+						        You can also download them by cloning <a href="https://github.com/choyixi/maps" target="_blank"> this github repository </a>	
+							</br></br></br>
+							Press <a href="#" class="navigate-down">DOWN</a> to view them.
+
+						</p>
+						</br></br>
+
+				</section>
+				<section>
+						<img style="margin-top:0px!important;" src="images/maps/map1.png"/>
+
+				</section>
+				<section>
+						<img style="margin-top:0px!important; position:relative;" src="images/maps/map2.png"/>
+
+				</section>
+				<section>
+						<img style="margin-top:0px!important; position:relative;" src="images/maps/map3.png"/>
+				</section>
+		</section>
 
 
-<script src="js/jquery.js"></script>
-<script src="js/impress-audio.js"></script>
-<script src="js/impress.js"></script>
+				<section data-transition="linear" data-background-transition="slide">
+				<h2>Contact Me</h2>
+				<p>
+					Wanna know more?
+					</br></br>
+					Send emails to 
+					<a class="icon" href="mailto:choyixi@gmail.com">choyixi@gmail.com</a>
+					</br></br>
+					Visit
+					<a class="icon" href="https://github.com/choyixi"  target="_blank">my github page</a>
+					<!--<a class="icon" href="resume.html"> c</a>You can download my resume HERE(link).
+					-->
+				</p>
+				</section>
+				<section>
+					<h4>That's all folks ... see page source for licence and acknowledments</h4>
+				</section>
+			</div>
+		</div>
 
-<script>
-        impress().init();
-        impress().play();
-</script>
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                backgroundTransition: 'slide',
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                /*
+                //PLAYING AROUND WITH THE 'event' object --- <3 reveal.js
+                console.log("event              =  \n",event);
+                console.log("event.currentSlide = \n",event.currentSlide);
+                console.log("event.indexh       = \n",event.indexh);
+                console.log("event.index        = \n",event.indexv);
+                */  
+
+                //the logic behind slide motion
+
+                //if current-postion = indexh of current slide -> do nothing
+                //else -> move slider from Current-position to to current slide's icon in the header
+                
+                //debug
+                //console.log("current marker on ID = \n",$("#icons_header_table tr.icon_bar td.icon_slot a.icon.current_page").attr("id"));
+
+                //extract only the number for id
+                var current_marker_id = $("#icons_header_table tr.icon_bar td.icon_slot a.icon.current_page").attr('id').slice(4);
+
+
+                //console.log(current_marker_id);
+
+                //BRRRR: wrapping my head around data-types in js :P
+                //console.log(typeof('1'),typeof("1"),typeof(parseInt("1")));
+
+               //this function (like the name suggests) moves the slider glass in nav header
+               function move_slider_glass(current_loc_id, destination_loc_id) {
+                 /* okay, i wanted to something cooler like have the slider animate linearly and move to it's new location,
+                    to create the lens on a measuring instrument feel
+                    but ........ 
+                    time is scarce, so i'll have to pick up on that another time o_O       
+                    the code below is commented out until then
+                 */
+                /*
+                 //calculate offset from current slider location
+                 offset_cur = $("#icons_header_table tr.icon_bar td.icon_slot a.icon.current_page").offset().left; 
+                 //debug:
+                 //console.log("offset of current slider location from left is = \n",offset_cur);
+                 offset_des = $("#nav_"+destination_loc_id).offset().left;
+                 console.log("offset of destination left is = \n",offset_des)
+                 distance = offset_des - offset_cur;
+                 console.log("distance to move\n",distance);
+                 */
+
+
+                 //remove slider from current location                
+                 $("#icons_header_table tr.icon_bar td.icon_slot a.icon.current_page").removeClass("current_page");
+                 //add it to the new position
+                 $("#nav_"+destination_loc_id).addClass("current_page");
+                 return;
+               }
+
+               if(event.indexh === parseInt(current_marker_id)) {
+                 console.log("no slider change needed - you are already on that page");
+               }
+               else {
+                 move_slider_glass(current_marker_id,event.indexh);
+               }
+            });
+		</script>
 
 </body>
+    <script>
+      $(document).ready(function() {
+        $("#icons_header_table tr.icon_bar td.icon_slot").hover(
+          function() {
+            if($(this).hasClass("current_page")) {
+              //debug
+              //console.log("NOTHING TO DO- current marker <<<<");
+            }
+            else if($(this).hasClass("hover_on")) {
+              //debug
+              //console.log("NOTHING TO DO- Hover is alredy on <<<<");
+            }
+            else {
+              $("a.icon",this).addClass('hover_on');
+            }
+           
+          },
+          function() {//hover off
+            $("a.icon",this).removeClass("hover_on")
+          }
+      );
+        
+    $("#icons_header_table tr.icon_bar td.icon_slot").click(
+	  function() {
+	    if($(this).hasClass("no_rotate")) {
+	    //debug
+        //console.log(">>>>> can't rotate those <<<<");
+	    }
+	    else if($(this).hasClass("current_page")) {
+	      console.log("you are already on that page");
+	    }
+	    else {
+	      $('.hover_on').removeClass("hover_on");//remove marker from previous active page (if any)
+	      $(".current_page").removeClass("current_page");
+	       //debug
+	       //  console.log("adding current flag to ", $(this));
+	      $("a.icon",this).addClass("current_page");
+	    }})}
+     );	
+    </script>
+
 </html>
 
